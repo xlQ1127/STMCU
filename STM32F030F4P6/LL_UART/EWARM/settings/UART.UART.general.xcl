@@ -1,0 +1,15 @@
+"C:\PRO-software\IAREWB\arm\bin\armproc.dll" 
+
+"C:\PRO-software\IAREWB\arm\bin\armstlink2.dll" 
+
+"C:\STM32programme\STM32F030F4P6\IAR\LL_UART\EWARM\UART\Exe\UART.out" 
+
+--plugin "C:\PRO-software\IAREWB\arm\bin\armbat.dll" 
+
+--device_macro "C:\PRO-software\IAREWB\arm\config\debugger\ST\STM32F0xx.dmac" 
+
+--flash_loader "C:\PRO-software\IAREWB\arm\config\flashloader\ST\FlashSTM32F03xx4.board" 
+
+
+
+

@@ -1,0 +1,5 @@
+1.修改esp8266.c下的wifi账号及密码
+
+2.修改onenet.c下的devid和apikey
+
+3.可选择修改onenet.c下的经纬度坐标

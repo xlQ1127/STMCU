@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<userOverrides>
+    <override>
+        <path>C:\STM32programme\STM32F030F4P6\IAR\LL_EXTI\Src\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\STM32programme\STM32F030F4P6\IAR\LL_EXTI\Src\stm32f0xx_it.c</path>
+        <encoding>System</encoding>
+    </override>
+</userOverrides>

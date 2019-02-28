@@ -1,0 +1,16 @@
+1.修改esp8266.c下的wifi账号及密码
+
+2.修改onenet.c下的devid和apikey
+
+3.指令说明：
+	1.命令直接下发：
+		{redled}x	打开红灯(x为0~250)
+		{greenledled}x	打开绿灯(x为0~250)
+		{yellowled}x	打开黄灯(x为0~250)
+		{blueled}x	打开蓝灯(x为0~250)
+
+	2.应用命令填写方式：
+		{redled}{V}，		打开红灯；调节红灯亮度；使用旋钮
+		{greenledled}{V}，	打开绿灯；调节绿灯亮度；使用旋钮
+		{yellowled}{V}，	打开黄灯；调节绿灯亮度；使用旋钮
+		{blueled}{V}，		打开蓝灯；调节绿灯亮度；使用旋钮

@@ -1,0 +1,15 @@
+"D:\DesignWare\IAR\arm\bin\armproc.dll" 
+
+"D:\DesignWare\IAR\arm\bin\armstlink2.dll" 
+
+"E:\STM32F030F4P6\LL_SPI\EWARM\LL_SPI\Exe\LL_SPI.out" 
+
+--plugin "D:\DesignWare\IAR\arm\bin\armbat.dll" 
+
+--device_macro "D:\DesignWare\IAR\arm\config\debugger\ST\STM32F0xx.dmac" 
+
+--flash_loader "D:\DesignWare\IAR\arm\config\flashloader\ST\FlashSTM32F03xx4.board" 
+
+
+
+

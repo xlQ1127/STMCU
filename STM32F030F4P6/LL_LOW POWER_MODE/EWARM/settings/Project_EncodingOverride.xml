@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<userOverrides>
+    <override>
+        <path>C:\STM32programme\STM32F030F4P6\IAR\LL_LOW POWER_MODE\Src\main.c</path>
+        <encoding>System</encoding>
+    </override>
+</userOverrides>

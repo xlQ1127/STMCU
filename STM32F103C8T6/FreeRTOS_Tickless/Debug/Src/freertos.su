@@ -1,0 +1,7 @@
+freertos.c:179:6:StartDefaultTask	8	static
+freertos.c:199:6:StartSysInfoTask	72	static
+freertos.c:107:13:configureTimerForRunTimeStats	0	static
+freertos.c:112:22:getRunTimeCounterValue	0	static
+freertos.c:119:13:PreSleepProcessing	0	static
+freertos.c:125:13:PostSleepProcessing	0	static
+freertos.c:137:6:MX_FREERTOS_Init	56	static

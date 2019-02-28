@@ -1,0 +1,6 @@
+-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I .\core -I .\fwlib\inc -I .\hardware\inc -I .\user -I .\NET\onenet\inc -I .\NET\EDP -I .\NET\device\inc
+-I.\RTE\_STM32F103
+-IC:\ProgSoftware\keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include
+-IC:\ProgSoftware\keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
+-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
+-o .\output\stm32f10x_gpio.o --omf_browse .\output\stm32f10x_gpio.crf --depend .\output\stm32f10x_gpio.d --feedback ".\output\stm32f103.fed" "fwlib\src\stm32f10x_gpio.c"

@@ -1,0 +1,17 @@
+"D:\professional software\IAR7.7\arm\bin\armproc.dll" 
+
+"D:\professional software\IAR7.7\arm\bin\armjlink2.dll" 
+
+"E:\work\seekfree\freescale_work\传感器历程\TFT液晶屏\1.8TFT图片显示例程(K60)\使用硬件SPI接口\Projecct\IAR\program\MK60_Debug\Exe\SeekFree_Kinetis.out" 
+
+--plugin "D:\professional software\IAR7.7\arm\bin\armbat.dll" 
+
+--device_macro "D:\professional software\IAR7.7\arm\config\debugger\NXP\Kxx.dmac" 
+
+--device_macro "D:\professional software\IAR7.7\arm\config\debugger\NXP\Kxx_Trace.dmac" 
+
+--flash_loader "D:\professional software\IAR7.7\arm\config\flashloader\NXP\FlashK60Dxxx128K.board" 
+
+
+
+

@@ -1,0 +1,4 @@
+syntax: glob
+*~
+firmware/bin/*
+*.pyc

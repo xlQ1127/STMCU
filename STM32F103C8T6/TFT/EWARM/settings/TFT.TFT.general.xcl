@@ -1,0 +1,15 @@
+"C:\ProgSoftware\IAR\arm\bin\armproc.dll" 
+
+"C:\ProgSoftware\IAR\arm\bin\armstlink2.dll" 
+
+"C:\Users\simon\Documents\STM32programme\STM32F103C8T6\TFT\EWARM\TFT\Exe\TFT.out" 
+
+--plugin "C:\ProgSoftware\IAR\arm\bin\armbat.dll" 
+
+--device_macro "C:\ProgSoftware\IAR\arm\config\debugger\ST\STM32F1xx_XL.dmac" 
+
+--flash_loader "C:\ProgSoftware\IAR\arm\config\flashloader\ST\FlashSTM32F10xx8.board" 
+
+
+
+

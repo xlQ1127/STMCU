@@ -1,0 +1,64 @@
+中断汇总：
+
+tim5中断(系统运行中断)：抢占1  响应0
+
+tim4中断(PWM捕获中断)：抢占0 响应3
+
+
+//输入通道：
+//CH1       CH2       CH3       CH4
+//PB6       PB7       PB8       PB9
+//roll      pitch     thr       yaw
+
+//电机输出通道：
+//CH1       CH2       CH3       CH4
+//PA6       PA7       PB0       PB1
+
+
+
+
+//校准值保存到flash里：39
+遥控器的通道值21  +  陀螺仪的零偏值4  +  加速度的零偏移值4  +   PID值10
+
+//FLAG ==  0xF00F 时说明数据已经存储过
+
+//0
+RC_FLAG+roll(max)+roll(min)+thr(max)+thr(min)+pitch(max)++pitch(min)+yaw(max)+yaw(min)+
+CH5(1)+CH5(2)+CH5(3)+CH5(4)+CH5(5)+CH5(6)+CH6(max)+CH6(min)+CH7(max)+CH7(min)+CH8(max)+CH8(min);  --21
+//21
+GYRO_FLAG+gyro_offset[0]+gyro_offset[1]+gyro_offset[2]; --4
+//25
+ACC_FLAG+acc_offset[0]+acc_offset[1]+acc_offset[2];  -- 4
+//29
+PID_FLAG+ROL_P+ROL_I+ROL_D + PIT_P+PIT_I+PIT_D + YAW_P+YAW_I+YAW_D;  -- 10
+
+
+
+
+  
+
+
+
+
+下一步要优化和修改：(MCU换成100引脚以上STM32VET6)
+
+系统定时器改为TIM5
+
+PWM捕获定时器 改为TIM3 TIM4(8通道输入)
+//输入通道：
+//CH1       CH2       CH3       CH4  	CH5		  CH6       CH7       CH8
+//PA6       PA7       PB0       PB1		PB6       PB7       PB8       PB9
+
+PWM输出定时器 改为TIM1 TIM2(8通道输出)
+//输出通道：
+//CH1       CH2       CH3       CH4       CH5       CH6       CH7       CH8
+//PA8(PE9)	PA9(PE11) PA10(PE13)PA11(PE14)PA0       PA1       PA2(PB10) PA3(PB11)
+
+//USART1:数据输出
+TX-PA9  RX-PA10
+
+//UASRT2:?????
+TX-PA2  RX-PA3
+
+//UART3:GPS
+TX-PB10 RX-PB11

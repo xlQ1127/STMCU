@@ -1,0 +1,4 @@
+Added Component: Designator=R00(6-0805_L)
+Added Pin To Net: NetName=GND Pin=R00-1
+Added Pin To Net: NetName=GND Pin=R00-2
+Added Member To Class: ClassName=MC-34063 Member=Component R00 Res1

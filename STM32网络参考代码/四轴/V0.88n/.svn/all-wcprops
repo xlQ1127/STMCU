@@ -1,0 +1,335 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n
+END
+timer0.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/timer0.c
+END
+user_receiver.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/user_receiver.c
+END
+flight.pnproj
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/flight.pnproj
+END
+Settings.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/Settings.h
+END
+timer0.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/timer0.h
+END
+user_receiver.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/user_receiver.h
+END
+Spektrum.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/Spektrum.c
+END
+libfc644.a
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/libfc644.a
+END
+flight.pnps
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/flight.pnps
+END
+sbus.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/sbus.c
+END
+Spektrum.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/Spektrum.h
+END
+jetimenu.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/jetimenu.c
+END
+sbus.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/sbus.h
+END
+isqrt.S
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/isqrt.S
+END
+jetimenu.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/jetimenu.h
+END
+debug.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/debug.c
+END
+printf_P.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/printf_P.h
+END
+eeprom.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/eeprom.c
+END
+fc.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/fc.c
+END
+debug.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/debug.h
+END
+spi.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/spi.c
+END
+libfc1284.a
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/libfc1284.a
+END
+eeprom.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/eeprom.h
+END
+fc.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/fc.h
+END
+capacity.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/capacity.c
+END
+gps.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/gps.h
+END
+mymath.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/mymath.c
+END
+spi.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/spi.h
+END
+analog.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/analog.c
+END
+capacity.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/capacity.h
+END
+FlightCtrl.aps
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/FlightCtrl.aps
+END
+hottmenu.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/hottmenu.c
+END
+led.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/led.c
+END
+menu.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/menu.c
+END
+mymath.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/mymath.h
+END
+rc.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/rc.c
+END
+analog.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/analog.h
+END
+isqrt.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/isqrt.h
+END
+vector.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/vector.h
+END
+hottmenu.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/hottmenu.h
+END
+led.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/led.h
+END
+menu.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/menu.h
+END
+rc.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/rc.h
+END
+uart.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/uart.c
+END
+License.txt
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/License.txt
+END
+twimaster.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/twimaster.c
+END
+uart.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/uart.h
+END
+version.txt
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/version.txt
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/main.c
+END
+libfc.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/libfc.h
+END
+twimaster.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/twimaster.h
+END
+old_macros.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/old_macros.h
+END
+GPS.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/GPS.c
+END
+main.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/main.h
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/mikrosvn/FlightCtrl/!svn/ver/2167/tags/V0.88n/makefile
+END

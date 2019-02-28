@@ -1,0 +1,15 @@
+"D:\Program Files\IAR\arm\bin\armproc.dll" 
+
+"D:\Program Files\IAR\arm\bin\armstlink2.dll" 
+
+"F:\STM32F030F4P6\joystick\EWARM\joystick\Exe\joystick.out" 
+
+--plugin "D:\Program Files\IAR\arm\bin\armbat.dll" 
+
+--device_macro "D:\Program Files\IAR\arm\config\debugger\ST\STM32F0xx.dmac" 
+
+--flash_loader "D:\Program Files\IAR\arm\config\flashloader\ST\FlashSTM32F03xx4.board" 
+
+
+
+

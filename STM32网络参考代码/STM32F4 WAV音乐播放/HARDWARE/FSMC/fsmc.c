@@ -1,0 +1,16 @@
+#include <stm32f10x_lib.h>
+#include "fsmc.h"
+
+void LCD_FSMCCfg(void)
+{
+    //Bank1 NOR/SRAM 控制寄存器配置
+	FSMC_Bank1->BTCR[6]=0x00000000|0x00000000|0x00000010|0x00000000|0x00000000|
+						0x00000000|0x00000000|0x00001000|0x00000000|0x00000000|0x00000000;                        
+	//Bank1 NOR/SRAM 时间寄存器配置  
+	FSMC_Bank1->BTCR[7]=0x00000000|0x00000000|(0x00000002<<8)|
+						0x00000000|0x00000000|0x00000000|0x00000000;
+	//Bank1 NOR/SRAM写时序寄存器配置(当使用扩展模式时,此处没用)
+	FSMC_Bank1E->BWTR[6]=0x0FFFFFFF;
+  	//使能BANK4(NOR/SRAM Bank 1~4中的)
+	FSMC_Bank1->BTCR[6]|=0x00000001;
+}

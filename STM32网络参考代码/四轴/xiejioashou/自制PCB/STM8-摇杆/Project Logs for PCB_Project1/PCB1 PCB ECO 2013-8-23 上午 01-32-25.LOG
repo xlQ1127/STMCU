@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=GND Pin=P4-2
+Removed Pin From Net: NetName=GND Pin=R00-2
+Added Component: Designator=R0(6-0805_L)
+Added Component: Designator=R000(6-0805_L)
+Added Pin To Net: NetName=VCC Pin=R0-2
+Added Pin To Net: NetName=VCC Pin=R000-2
+Added Pin To Net: NetName=NetP4_2 Pin=P4-2
+Added Pin To Net: NetName=NetP4_2 Pin=R00-2
+Added Net: Name=NetP4_2
+Added Pin To Net: NetName=NetR0_1 Pin=R0-1
+Added Pin To Net: NetName=NetR0_1 Pin=R000-1
+Added Net: Name=NetR0_1
+Added Member To Class: ClassName=MC-34063 Member=Component R0 Res1
+Added Member To Class: ClassName=MC-34063 Member=Component R000 Res1

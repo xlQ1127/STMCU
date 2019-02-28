@@ -1,0 +1,6 @@
+当lcd1602提示“Wifi info Error Use APP -> 8266”时：
+	不管ios还是android，先打开手机设置->无线局域网，连接ssid为OneNet的热点，密码12345678。
+	等待连接上后，切换到通讯调试器(ios)或网络调试助手(android)。
+	然后lcd会提示“ESP8266 AP OK”，等待一会后会提示“Enter SSID”，并且手机会看到“请输入Wifi名字”，然后输入ssid，点击发送。
+	然后lcd又会提示“Enter PassWord”，手机提示“请输入Wifi密码”，然后输入密码，点击发送。
+	最后lcd先显示5s刚刚输入的ssid和pswd，然后提示“Wait ESP8266 STA”，代表正在使用sta模式连接到路由器。

@@ -1,0 +1,15 @@
+"D:\DesignWare\IAR\arm\bin\armproc.dll" 
+
+"D:\DesignWare\IAR\arm\bin\armstlink2.dll" 
+
+"E:\STM32F407VET6\NRF24L01_RX\EWARM\NRF24L01_RX\Exe\NRF24L01_RX.out" 
+
+--plugin "D:\DesignWare\IAR\arm\bin\armbat.dll" 
+
+--device_macro "D:\DesignWare\IAR\arm\config\debugger\ST\STM32F4xx.dmac" 
+
+--flash_loader "D:\DesignWare\IAR\arm\config\flashloader\ST\FlashSTM32F4xxx.board" 
+
+
+
+

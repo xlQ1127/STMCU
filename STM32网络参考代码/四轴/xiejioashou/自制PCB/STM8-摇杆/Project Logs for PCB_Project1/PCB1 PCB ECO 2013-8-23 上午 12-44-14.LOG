@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=VCC Pin=R14-2
+Removed Member From Class: ClassName=MC-34063 Member=LED1
+Removed Member From Class: ClassName=MC-34063 Member=R14

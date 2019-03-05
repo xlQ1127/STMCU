@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <Project>
     <WindowStorage>
         <ChildIdMap>
@@ -861,7 +861,7 @@
             <IarPane-34098>
                 <expressions>
                     <item>retSD</item>
-                    <item></item>
+                    <item />
                 </expressions>
                 <col-names>
                     <item>Expression</item>

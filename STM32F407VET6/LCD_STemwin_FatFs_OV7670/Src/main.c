@@ -77,11 +77,17 @@
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-#define FRAMEWIDTH 80
-#define FRAMEHIGTH 60
+#define FRAMEWIDTH 160
+#define FRAMEHIGTH 120
+
 uint8_t Frame_buff[FRAMEWIDTH*FRAMEHIGTH*2];
 
+uint32_t Pixel_X_Index=0,Pixel_Y_Index=0,i=0,JPEG_Index=0;
+
+char str_buf[16]={0};
+
 //struct jpeg_compress_struct cinfo;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -104,9 +110,7 @@ void BSP_CAMERA_ContinuousStart(uint8_t *buff);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  uint32_t i=0,j=0;
 
-//	 char str_buf[16];
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -140,10 +144,10 @@ int main(void)
 		Lcd_ColorBox(0,0,320,240,0xFFF);
 		
 		OV7670_Init();
-		Lcd_ColorBox(0,0,320,240,0x00);
+		Lcd_ColorBox(0,0,160,120,0x00);
 
 
-//		f_mount(&SDFatFS,(TCHAR const*)SDPath,0);
+		f_mount(&SDFatFS,(TCHAR const*)SDPath,0);
 	
 
   /* USER CODE END 2 */
@@ -157,21 +161,24 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 				BSP_CAMERA_ContinuousStart( (uint8_t *)Frame_buff );
-				Lcd_SetCursor(0,0);
-				for(j=0;j<FRAMEHIGTH;j++)
-				{
-						for(i=0;i<FRAMEWIDTH;i+=2)
-						{
-								DrawPixel(i,j, (Frame_buff[i+j*FRAMEWIDTH]<<8)|(Frame_buff[i+1+j*FRAMEWIDTH]) );
-						}
-				}
-//				sprintf(str_buf,"my%dth.bmp",JPEG_Index);
-//    bmp_encode(str_buf,(uint8_t *)Frame_buff,FRAMEWIDTH,FRAMEHIGTH);
-	
-				HAL_DCMI_Stop(&hdcmi);
+    HAL_DCMI_Stop(&hdcmi);
 			
+			
+
+				Lcd_SetCursor(0,0);
+				for(Pixel_Y_Index=0;Pixel_Y_Index<120;Pixel_Y_Index++)
+				{
+						for(Pixel_X_Index=0;Pixel_X_Index<160;Pixel_X_Index++)
+						{
+							 i=Pixel_X_Index*2+Pixel_Y_Index*FRAMEWIDTH*2;
+								DrawPixel(Pixel_X_Index, Pixel_Y_Index, (Frame_buff[i]<<8)|(Frame_buff[i+1]) );
+						}
+				}		
+//				sprintf(str_buf,"%dth.bmp",JPEG_Index);
+//    bmp_encode(str_buf,(uint8_t *)Frame_buff,FRAMEWIDTH,FRAMEHIGTH);
 //				JPEG_Index++;
-				HAL_Delay(10);
+				
+ 				HAL_Delay(100);
   }
   /* USER CODE END 3 */
 }

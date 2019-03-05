@@ -352,15 +352,13 @@ uint8_t minibmp_decode(uint8_t *filename, uint16_t x, uint16_t y, uint16_t width
 uint8_t bmp_encode(const char * filename, uint8_t * RGB_Buf,uint16_t width, uint16_t height)
 {
 	uint16_t bmpheadsize; //bmp头大小
-	BITMAPINFO hbmp;	  //bmp头
-	uint16_t pixcnt;				   	//像素计数器
-	uint16_t bi4width;		       	//水平像素字节数	  
-	uint16_t tx,ty;				   	//图像尺寸
+	BITMAPINFO hbmp;	  //bmp头 
+	uint16_t Width_Index,height_Index;				   	//图像尺寸
 	
 	FRESULT res;
 	uint32_t bw;
 	
-	uint16_t databuf[width];
+	uint16_t databuf;
 	
 	if (width == 0 || height == 0)
 		return PIC_WINDOW_ERR; //区域错误
@@ -374,7 +372,11 @@ uint8_t bmp_encode(const char * filename, uint8_t * RGB_Buf,uint16_t width, uint
 	hbmp.bmiHeader.biBitCount = 16;																				   //bmp为16位色bmp
 	hbmp.bmiHeader.biCompression = BI_BITFIELDS;																   //每个象素的比特由指定的掩码决定。
 	hbmp.bmiHeader.biSizeImage = hbmp.bmiHeader.biHeight * hbmp.bmiHeader.biWidth * (hbmp.bmiHeader.biBitCount / 8); //bmp数据区大小
-
+ hbmp.bmiHeader.biXPelsPerMeter=0;
+	hbmp.bmiHeader.biYPelsPerMeter=0;
+	hbmp.bmiHeader.biClrUsed=0;
+	hbmp.bmiHeader.biClrImportant=0;
+	
 	hbmp.bmfHeader.bfType = ((uint16_t)'M' << 8) + 'B';				  //BM格式标志
 	hbmp.bmfHeader.bfSize = bmpheadsize + hbmp.bmiHeader.biSizeImage; //整个bmp的大小
 	hbmp.bmfHeader.bfOffBits = bmpheadsize;							  //到数据区的偏移
@@ -387,27 +389,20 @@ uint8_t bmp_encode(const char * filename, uint8_t * RGB_Buf,uint16_t width, uint
 	
 	if (res == FR_OK)						   //创建成功
 	{
-		res = f_write(&SDFile, (uint8_t *)&hbmp, bmpheadsize, &bw); //写入BMP首部
-		
-		
-		for(ty=height-1;hbmp.bmiHeader.biHeight;ty--)
-		{
-			 pixcnt=0;
- 			for(tx=0;pixcnt!=(bi4width/2);)
-			 {
-				if(pixcnt<hbmp.bmiHeader.biWidth) databuf[pixcnt]=RGB_Buf[tx+ty*width]<<8 | RGB_Buf[tx+1+ty*width];//读取坐标点的值 
-				
-				else databuf[pixcnt]=0Xffff;//补充白色的像素.  
-				
-				pixcnt++;
-			 tx=	tx+2;
-			 }
-		 	hbmp.bmiHeader.biHeight--;
-				
-		 	res=f_write(&SDFile,(uint8_t *)databuf,bi4width,&bw);//写入数据
-		}
-		
-
+		 res = f_write(&SDFile, (uint8_t *)&hbmp, bmpheadsize, &bw); //写入BMP首部
+			for(height_Index=0;height_Index<height;height_Index++)
+			{
+						for(Width_Index=0;Width_Index<width;Width_Index++)
+						{
+								databuf= (RGB_Buf[Width_Index*2+height_Index*width]<<8)|(RGB_Buf[Width_Index*2+1+height_Index*width*2]) ;//读取坐标点的值 
+							 res=f_write(&SDFile,&databuf,2,&bw);//写入数据
+							  if(res!=FR_OK)
+									{
+									 return res;
+									}
+						}
+				 	
+			}
 	}
 f_close(&SDFile);
 	

@@ -46,7 +46,14 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "esp8266.h"
 
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#include "edpkit.h"
+#include "onenet.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -67,7 +74,10 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-extern uint8_t WIFI_RX_Buffer[128];
+extern WIFI_Frame_Typedef wifi_frame;
+
+uint8_t UART2_Data=0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -89,7 +99,7 @@ static void MX_NVIC_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+  unsigned char *dataPtr = NULL;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -118,6 +128,67 @@ int main(void)
   MX_NVIC_Init();
   /* USER CODE BEGIN 2 */
 
+		LL_GPIO_SetOutputPin(GPIOB, ESP_RST_Pin|LED2_Pin|LED3_Pin|LED4_Pin|LED5_Pin);
+		LL_mDelay(1000);
+		
+		LL_GPIO_ResetOutputPin(GPIOB, ESP_RST_Pin|LED2_Pin|LED3_Pin|LED4_Pin|LED5_Pin);
+		LL_mDelay(1000);		
+		
+		LL_GPIO_SetOutputPin(GPIOB, ESP_RST_Pin|LED2_Pin|LED3_Pin|LED4_Pin|LED5_Pin);
+		LL_mDelay(1000);
+		
+		HAL_GPIO_WritePin(GPIOB, ESP_RST_Pin, GPIO_PIN_RESET);
+		LL_mDelay(100);
+		HAL_GPIO_WritePin(GPIOB, ESP_RST_Pin, GPIO_PIN_SET);
+		LL_mDelay(10000);
+		
+
+		
+  HAL_UART_Receive_IT(&huart2, &UART2_Data,1);
+		
+		
+		
+	 while( WIFI_ATCMD("AT\r\n","OK",NULL,10) )
+		{
+		;
+		}		
+		memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
+		
+	 while( WIFI_ATCMD("AT+CWMODE=3\r\n","OK",NULL,10) )
+		{
+		;
+		}	
+		memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
+		
+		while( WIFI_JAP_Type1("lebment","18162327063") )
+		{
+		;
+		}	
+		memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
+
+		while( WIFI_ConnectIP() )
+		{
+		;
+		}			
+	 memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
+		
+		
+
+	
+	while( OneNet_DevLink() )			//½ÓÈëOneNET
+ {
+	 LL_mDelay(1000);
+	}
+	memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
+	wifi_frame.Pointer=0;
+	
+	
+//	 while( WIFI_ATCMD("AT+RST\r\n","OK",NULL,15000) )
+//		{
+//		;
+//		}			
+		
+		
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -127,6 +198,17 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+//			 OneNet_SendData();
+//			 memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
+			
+		 dataPtr = WIFI_GetIPD(0);
+			if(dataPtr != NULL)
+			{
+				OneNet_RevPro(dataPtr);
+			 memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
+				wifi_frame.Pointer=0;
+			}
+			 LL_mDelay(500);
   }
   /* USER CODE END 3 */
 }
@@ -137,38 +219,41 @@ int main(void)
   */
 void SystemClock_Config(void)
 {
-  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  LL_FLASH_SetLatency(LL_FLASH_LATENCY_2);
 
-  /**Initializes the CPU, AHB and APB busses clocks 
-  */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-  RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL6;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+   if(LL_FLASH_GetLatency() != LL_FLASH_LATENCY_2)
   {
-    Error_Handler();
+    Error_Handler();  
   }
-  /**Initializes the CPU, AHB and APB busses clocks 
-  */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  LL_RCC_HSE_Enable();
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+   /* Wait till HSE is ready */
+  while(LL_RCC_HSE_IsReady() != 1)
   {
-    Error_Handler();
+    
   }
-  /**Enables the Clock Security System 
-  */
-  HAL_RCC_EnableCSS();
+  LL_RCC_HSE_EnableCSS();
+  LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSE_DIV_1, LL_RCC_PLL_MUL_6);
+  LL_RCC_PLL_Enable();
+
+   /* Wait till PLL is ready */
+  while(LL_RCC_PLL_IsReady() != 1)
+  {
+    
+  }
+  LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
+  LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_2);
+  LL_RCC_SetAPB2Prescaler(LL_RCC_APB2_DIV_1);
+  LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
+
+   /* Wait till System clock is ready */
+  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL)
+  {
+  
+  }
+  LL_Init1msTick(72000000);
+  LL_SYSTICK_SetClkSource(LL_SYSTICK_CLKSOURCE_HCLK);
+  LL_SetSystemCoreClock(72000000);
 }
 
 /**
@@ -178,7 +263,7 @@ void SystemClock_Config(void)
 static void MX_NVIC_Init(void)
 {
   /* USART2_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(USART2_IRQn, 1, 0);
+  HAL_NVIC_SetPriority(USART2_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(USART2_IRQn);
 }
 
@@ -186,9 +271,14 @@ static void MX_NVIC_Init(void)
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
+  HAL_UART_Receive_IT(&huart2, &UART2_Data,1);
 	
-  HAL_UART_Receive_IT(&huart2, WIFI_RX_Buffer,128);
+	 wifi_frame.RX_Buffer[wifi_frame.Pointer++]=UART2_Data;
 	
+	 if(wifi_frame.Pointer>WIFI_BUF_LEN)
+		{
+		 wifi_frame.OverLenth_Flag=1;
+		}
 }
 
 

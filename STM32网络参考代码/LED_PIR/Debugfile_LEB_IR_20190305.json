@@ -1,0 +1,1 @@
+{"Pro_Key":"vpxzmy5ijcwdufrf","Dp_Data":[{"attr":0,"code":"pir_state","desc":"【必选】1：有人触发\n","iconname":"icon-yundong","id":1,"mode":"ro","name":"人体感应状态","property":{"range":["pir"],"type":"enum"},"type":"obj"},{"attr":0,"code":"LED1","desc":"","id":101,"mode":"rw","name":"LED1","property":{"type":"bool"},"type":"obj"}]}

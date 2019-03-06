@@ -49,6 +49,16 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
+#include "stm32f1xx_ll_rcc.h"
+#include "stm32f1xx_ll_bus.h"
+#include "stm32f1xx_ll_system.h"
+#include "stm32f1xx_ll_exti.h"
+#include "stm32f1xx_ll_cortex.h"
+#include "stm32f1xx_ll_utils.h"
+#include "stm32f1xx_ll_pwr.h"
+#include "stm32f1xx_ll_dma.h"
+#include "stm32f1xx.h"
+#include "stm32f1xx_ll_gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -78,19 +88,19 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define ESP_TX_Pin GPIO_PIN_2
+#define ESP_TX_Pin LL_GPIO_PIN_2
 #define ESP_TX_GPIO_Port GPIOA
-#define ESP_RX_Pin GPIO_PIN_3
+#define ESP_RX_Pin LL_GPIO_PIN_3
 #define ESP_RX_GPIO_Port GPIOA
-#define ESP_RST_Pin GPIO_PIN_5
+#define ESP_RST_Pin LL_GPIO_PIN_5
 #define ESP_RST_GPIO_Port GPIOB
-#define LED2_Pin GPIO_PIN_6
+#define LED2_Pin LL_GPIO_PIN_6
 #define LED2_GPIO_Port GPIOB
-#define LED3_Pin GPIO_PIN_7
+#define LED3_Pin LL_GPIO_PIN_7
 #define LED3_GPIO_Port GPIOB
-#define LED4_Pin GPIO_PIN_8
+#define LED4_Pin LL_GPIO_PIN_8
 #define LED4_GPIO_Port GPIOB
-#define LED5_Pin GPIO_PIN_9
+#define LED5_Pin LL_GPIO_PIN_9
 #define LED5_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 

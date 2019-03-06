@@ -178,9 +178,10 @@ void OneNet_RevPro(unsigned char *cmd)
 	dataPtr = strchr(req, '{');							//搜索'{'
 	if(dataPtr != NULL)									//如果找到了
 	{
-		dataPtr = strstr((char *)req, "LED1");	
-		dataPtr+=4;
-  while(*dataPtr>'0'&&*dataPtr<'9') 
+		
+		dataPtr = strstr((char *)req, "LED1:");	
+		dataPtr+=5;
+  while(*dataPtr>='0'&&*dataPtr<='9') 
 		{
 		 numBuf[num++] = *dataPtr++;
 		}
@@ -196,7 +197,14 @@ void OneNet_RevPro(unsigned char *cmd)
 				LED2_OFF;
 			}
 		}
-		else if(strstr((char *)req, "LED2"))
+		
+		dataPtr = strstr((char *)req, "LED2");
+		dataPtr+=5;
+	 while(*dataPtr>='0'&&*dataPtr<='9') 
+		{
+		 numBuf[num++] = *dataPtr++;
+		}
+  if( dataPtr )
 		{
 			if(num == 1)
 			{

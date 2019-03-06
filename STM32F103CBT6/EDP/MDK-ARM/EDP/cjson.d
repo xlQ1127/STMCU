@@ -1,9 +1,0 @@
-edp\cjson.o: ..\BSP\cJSON.c
-edp\cjson.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-edp\cjson.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-edp\cjson.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
-edp\cjson.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-edp\cjson.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
-edp\cjson.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
-edp\cjson.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
-edp\cjson.o: ..\BSP\cJSON.h

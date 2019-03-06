@@ -100,6 +100,7 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
   unsigned char *dataPtr = NULL;
+	 uint8_t Count=0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -198,17 +199,22 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//			 OneNet_SendData();
-//			 memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
-			
-		 dataPtr = WIFI_GetIPD(0);
-			if(dataPtr != NULL)
-			{
-				OneNet_RevPro(dataPtr);
+			 if(Count>=5)
+				{
+			 OneNet_SendData();
 			 memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
 				wifi_frame.Pointer=0;
-			}
-			 LL_mDelay(500);
+					Count=0;
+				}
+				dataPtr = WIFI_GetIPD(0);
+				if(dataPtr != NULL)
+				{
+					OneNet_RevPro(dataPtr);
+					memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
+					wifi_frame.Pointer=0;
+				}
+				Count++;
+				LL_mDelay(1000);
   }
   /* USER CODE END 3 */
 }

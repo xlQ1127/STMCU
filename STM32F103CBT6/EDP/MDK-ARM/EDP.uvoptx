@@ -170,7 +170,7 @@
         <Mm>
           <WinNumber>1</WinNumber>
           <SubType>8</SubType>
-          <ItemText>\\EDP\../Src/usart.c\WIFI_RX_Buffer</ItemText>
+          <ItemText>\\EDP\../BSP/esp8266.c\wifi_frame.RX_Buffer</ItemText>
           <AccSizeX>0</AccSizeX>
         </Mm>
       </MemoryWindow1>

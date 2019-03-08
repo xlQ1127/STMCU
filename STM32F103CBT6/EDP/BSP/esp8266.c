@@ -43,6 +43,7 @@ uint8_t WIFI_ATCMD(char* CMD,char * Token1,char * Token2,uint16_t timems)
 	 static uint16_t Len=0;
 
 	 wifi_frame.Pointer=0;
+	 memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
 	
 	 Len=strlen(CMD);
 	 memcpy(UART_TX_Buf,(uint8_t *)CMD,Len);
@@ -179,7 +180,7 @@ uint8_t WIFI_ConnectIP(void)
 {
 	 static char tmp[128];
 	
-	 sprintf( tmp, "AT+CIPSTART=\"TCP\",\"183.230.40.39\",876\r\n");
+	 sprintf( tmp, "AT+CIPSTART=\"TCP\",\"jjfaedp.hedevice.com\",876\r\n");
   if( WIFI_ATCMD(tmp,"CONNECT","ALREADY CONNECTED",1000) !=0 )
 		{
 	 	return 1;

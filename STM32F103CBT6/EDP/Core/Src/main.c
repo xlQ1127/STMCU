@@ -151,27 +151,26 @@ int main(void)
 		
 	 while( WIFI_ATCMD("AT\r\n","OK",NULL,10) )
 		{
-		;
+		LL_mDelay(1000);
 		}		
-		memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
 		
 	 while( WIFI_ATCMD("AT+CWMODE=3\r\n","OK",NULL,10) )
 		{
-		;
+		LL_mDelay(1000);
 		}	
-		memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
+
 		
 		while( WIFI_JAP_Type1("lebment","18162327063") )
 		{
-		;
+		 LL_mDelay(1000);
 		}	
-		memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
+		
 
 		while( WIFI_ConnectIP() )
 		{
-		;
+			LL_mDelay(1000);
 		}			
-	 memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
+	 
 		
 		
 
@@ -199,13 +198,14 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-			 if(Count>=5)
+			 if(Count>=30)
 				{
-			 OneNet_SendData();
-			 memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
-				wifi_frame.Pointer=0;
+					OneNet_SendData();
+					memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
+					wifi_frame.Pointer=0;
 					Count=0;
 				}
+				
 				dataPtr = WIFI_GetIPD(0);
 				if(dataPtr != NULL)
 				{
@@ -213,8 +213,10 @@ int main(void)
 					memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
 					wifi_frame.Pointer=0;
 				}
+				
 				Count++;
-				LL_mDelay(1000);
+				
+				LL_mDelay(100);
   }
   /* USER CODE END 3 */
 }

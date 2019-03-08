@@ -150,6 +150,7 @@ void OneNet_RevPro(unsigned char *cmd)
 	char *dataPtr = NULL;
 	char numBuf[10];
 	int num = 0;
+
 	
 	type = EDP_UnPacketRecv(cmd);
 	switch(type)										//判断是pushdata还是命令下发
@@ -180,13 +181,13 @@ void OneNet_RevPro(unsigned char *cmd)
 	{
 		
 		dataPtr = strstr((char *)req, "LED1:");	
-		dataPtr+=5;
-  while(*dataPtr>='0'&&*dataPtr<='9') 
+		if(dataPtr != NULL)
 		{
-		 numBuf[num++] = *dataPtr++;
-		}
-		if( dataPtr )				//搜索"LED"
-		{
+			dataPtr+=5;
+			while(*dataPtr>='0'&&*dataPtr<='9') 
+			{
+				numBuf[num++] = *dataPtr++;
+			}
 			num = atoi((const char *)numBuf);				//转为数值形式
 			if(num == 1)								//控制数据如果为1，代表开
 			{
@@ -197,46 +198,55 @@ void OneNet_RevPro(unsigned char *cmd)
 				LED2_OFF;
 			}
 		}
-		
-		dataPtr = strstr((char *)req, "LED2");
-		dataPtr+=5;
-	 while(*dataPtr>='0'&&*dataPtr<='9') 
-		{
-		 numBuf[num++] = *dataPtr++;
-		}
-  if( dataPtr )
-		{
-			if(num == 1)
+		dataPtr = strstr((char *)req, "LED2:");
+		if( dataPtr != NULL )
 			{
-				LED3_ON;
+					dataPtr+=5;
+					while(*dataPtr>='0'&&*dataPtr<='9') 
+					{
+						numBuf[num++] = *dataPtr++;
+					}
+					num = atoi((const char *)numBuf);				//转为数值形式
+					if(num == 1)
+						{
+							LED3_ON;
+						}
+					else if(num == 0)
+						{
+							LED3_OFF;
+						}
 			}
-			else if(num == 0)
+			
+			dataPtr =	strstr((char *)req, "LED3:");
+			if( dataPtr != NULL )
 			{
-				LED3_OFF;
+				dataPtr+=5;
+				while(*dataPtr>='0'&&*dataPtr<='9') 
+				{
+					numBuf[num++] = *dataPtr++;
+				}	
+				num = atoi((const char *)numBuf);				//转为数值形式
+				if(num == 1)
+				{
+					LED4_ON;
+				}
+				else if(num == 0)
+				{
+					LED4_OFF;
+				}
 			}
-		}
-		else if(strstr((char *)req, "LED3"))
-		{
-			if(num == 1)
-			{
-				LED4_ON;
-			}
-			else if(num == 0)
-			{
-				LED4_OFF;
-			}
-		}
+ }
 	
-	}
+
 	
-	if(type == CMDREQ && result == 0)						//如果是命令包 且 解包成功
-	{
-		EDP_FreeBuffer(cmdid_devid);						//释放内存
-		EDP_FreeBuffer(req);
-															//回复命令
-		WIFI_SendData(edpPacket._data, edpPacket._len);	//上传平台
-		EDP_DeleteBuffer(&edpPacket);						//删包
-	}
+		if(type == CMDREQ && result == 0)						//如果是命令包 且 解包成功
+		{
+			EDP_FreeBuffer(cmdid_devid);						//释放内存
+			EDP_FreeBuffer(req);
+																//回复命令
+			WIFI_SendData(edpPacket._data, edpPacket._len);	//上传平台
+			EDP_DeleteBuffer(&edpPacket);						//删包
+		}
 	 memset(wifi_frame.RX_Buffer,0,WIFI_BUF_LEN);
 	 wifi_frame.Pointer=0;
 }

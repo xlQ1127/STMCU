@@ -640,6 +640,16 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>Out</GroupName>
+          <Files>
+            <File>
+              <FileName>Flight_Contrl.map</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Flight_Contrl\Flight_Contrl.map</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>

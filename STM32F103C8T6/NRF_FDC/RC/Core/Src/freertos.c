@@ -83,7 +83,6 @@
          outer  INDEX_PID 4
 			pitch inner  INDEX_PID 7 
 			      outer  INDEX_PID 10
- 
 */
 
 #define INDEX_PID  1
@@ -295,7 +294,6 @@ void StartNRFTask(void const * argument)
 				if( ((PID_Typedef *)(PID_Event.value.p))->Function_Code == 'S')
 				{
 					Function_Code='S';
-					
 				}
 				else
 				{
@@ -315,7 +313,7 @@ void StartNRFTask(void const * argument)
 						memcpy( NRF_Tx_buf,((JoyKey_Typedef *)(JoyKey_Event.value.p)),sizeof(JoyKey_Typedef) );
 					 ((JoyKey_Typedef *)(JoyKey_Event.value.p))->Heart_Beat++;
 					 memcpy(CRC_Buf,NRF_Tx_buf,31 );
-					 NRF_Tx_buf[31] =(uint8_t) HAL_CRC_Calculate(&hcrc, CRC_Buf, 31);
+					 NRF_Tx_buf[31] =(uint8_t)HAL_CRC_Calculate(&hcrc, CRC_Buf, 31);
 						NRF24L01_TxPacket(NRF_Tx_buf);
 						break;
 					

@@ -1,0 +1,50 @@
+version:2.1.2 build:6648 revision:30992
+date:2018-03-15
+author:daizb
+git tag:涂鸦云串口调试助手v2.1.2
+note:
+	* 增加同步上报指令解析并回复
+
+version:2.1.1 build:6639 revision:34525
+date:2018-03-06
+author:daizb
+git tag:涂鸦云串口调试助手v2.1.1
+note:
+	* 修复下发DP点VALUE型数据不能为负数的bug
+
+version:2.1.0 build:6629 revision:20233
+date:2018-02-24
+author:daizb
+git tag:涂鸦云串口调试助手v2.1.0
+note:
+	* 增加多语言功能，用户可编辑
+	* 优化界面及相关适配性
+	* 增加菜单栏及相关选项
+
+version:2.0.13
+date:2018-01-15
+author:daizb
+git tag:涂鸦云串口调试助手v2.0.13
+note:
+	* 增加串口波特率可选，9600/115200
+
+version:2.0.12
+date:2017-11-27
+author:daizb
+git tag:涂鸦云串口调试助手v2.0.12
+note:
+	* 修改协议版本处理部分，直接取心跳包的版本值，用以区分查询和升级等包格式
+
+version:2.0.11
+date:2017-11-17
+author:daizb
+git tag:涂鸦云串口调试助手v2.0.11
+note:
+	* 修改下发指令0x06，MCU无须回应
+
+version:2.0.10
+date:2017-6-22
+author:daizb
+git tag:涂鸦云串口调试助手v2.0.10
+note:
+	* 增加天气功能

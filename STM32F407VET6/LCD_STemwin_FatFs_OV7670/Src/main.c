@@ -163,22 +163,33 @@ int main(void)
 				BSP_CAMERA_ContinuousStart( (uint8_t *)Frame_buff );
     HAL_DCMI_Stop(&hdcmi);
 			
-			
 
-				Lcd_SetCursor(0,0);
-				for(Pixel_Y_Index=0;Pixel_Y_Index<120;Pixel_Y_Index++)
-				{
-						for(Pixel_X_Index=0;Pixel_X_Index<160;Pixel_X_Index++)
-						{
-							 i=Pixel_X_Index*2+Pixel_Y_Index*FRAMEWIDTH*2;
-								DrawPixel(Pixel_X_Index, Pixel_Y_Index, (Frame_buff[i]<<8)|(Frame_buff[i+1]) );
-						}
-				}		
+
+//				LCD_WR_REG(0x01, 0x0127);
+//				LCD_WR_REG(0x03, 0x000A); //横屏，从左下角开始，从左到右，从下到上
+//				BlockWrite(0, 0 + 120 - 1, 0, 0 + 160 - 1);
+//				for (i = 0; i < 120 * 160 * 2; i += 2)
+//				{
+//					*(__IO uint16_t *)(Bank1_LCD_D) = Frame_buff[i]<<8|Frame_buff[i+1];
+//				}
+//				LCD_WR_REG(0x01, 0x1027);
+//				LCD_WR_REG(0x03, 0x010A); //横屏，从右上角开始，从左到右，从上到下			
+			
+//				Lcd_SetCursor(0,0);
+//				for(Pixel_Y_Index=0;Pixel_Y_Index<120;Pixel_Y_Index++)
+//				{
+//						for(Pixel_X_Index=0;Pixel_X_Index<160;Pixel_X_Index++)
+//						{
+//							 i=Pixel_X_Index*2+Pixel_Y_Index*FRAMEWIDTH*2;
+//							 i=Pixel_X_Index+Pixel_Y_Index*FRAMEWIDTH;
+//								DrawPixel(Pixel_X_Index, Pixel_Y_Index, (Frame_buff[i]<<8)|(Frame_buff[i+1]) );
+//						}
+//				}		
 //				sprintf(str_buf,"%dth.bmp",JPEG_Index);
 //    bmp_encode(str_buf,(uint8_t *)Frame_buff,FRAMEWIDTH,FRAMEHIGTH);
 //				JPEG_Index++;
 				
- 				HAL_Delay(100);
+ 				
   }
   /* USER CODE END 3 */
 }

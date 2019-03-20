@@ -122,22 +122,22 @@ void Control_Function( int16_t Throttle,int8_t Pitch_Set,int8_t Roll_Set,
 				Pitch_Err = Pitch_Set-Pitch;
 	   Roll_Err  = Roll_Set-Roll;
 				
-				/*x轴*/ 
+				//x轴 
 				Roll_out    = Outer_PID_Alg(Outer_Roll_Par ,Roll_Err,Roll_Err_pre);  //外环角度 Roll
-				Gyro_x_Err  = Roll_out - Gyro_X;
-				Roll_out    = Inner_PID_Alg(Inner_Roll_Par ,Gyro_x_Err,Gyro_x_Err_pre);  //内环角速度 
+		//		Gyro_x_Err  = Roll_out - Gyro_X;
+		//		Roll_out    = Inner_PID_Alg(Inner_Roll_Par ,Gyro_x_Err,Gyro_x_Err_pre);  //内环角速度 
 				
 				 
 				Pitch_out   = Outer_PID_Alg(Outer_Pitch_Par , Pitch_Err ,Pitch_Err_pre);
-				Gyro_y_Err  = Pitch_out - Gyro_Y;
-				Pitch_out   = Inner_PID_Alg(Inner_Pitch_Par ,Gyro_y_Err ,Gyro_y_Err_pre);  //内环角速度 				
+	//			Gyro_y_Err  = Pitch_out - Gyro_Y;
+		//		Pitch_out   = Inner_PID_Alg(Inner_Pitch_Par ,Gyro_y_Err ,Gyro_y_Err_pre);  //内环角速度 				
 				
-				/*更新误差*/
+				//更新误差
   	 Pitch_Err_pre  = Pitch_Err;
-	 		Gyro_y_Err_pre = Gyro_y_Err;
+//	 		Gyro_y_Err_pre = Gyro_y_Err;
 				
 		 	Roll_Err_pre   = Roll_Err;
-		 	Gyro_x_Err_pre = Gyro_x_Err;
+//		 	Gyro_x_Err_pre = Gyro_x_Err;
 
 					M1=(int16_t) ( Throttle + Roll_out - Pitch_out );
 					M2=(int16_t) ( Throttle + Roll_out + Pitch_out );

@@ -39,12 +39,12 @@
 #define Lcd_RST_Set HAL_GPIO_WritePin(LCD_RST_GPIO_Port, LCD_RST_Pin, GPIO_PIN_SET)
 
 //Lcd初始化及其低级控制函数
-
 void Lcd_Configuration(void);
 void Lcd_Initialize(void);
 void WriteComm(uint16_t CMD);
 void WriteData(uint16_t tem_data);
 void LCD_WR_REG(uint16_t Index, uint16_t CongfigTemp);
+
 //Lcd高级控制函数
 void Lcd_SetCursor(uint16_t x, uint16_t y);
 void Lcd_ColorBox(uint16_t x, uint16_t y, uint16_t xLong, uint16_t yLong, uint16_t Color);
@@ -53,4 +53,5 @@ uint16_t GetPoint(uint16_t x, uint16_t y);
 void BlockWrite(unsigned int Xstart, unsigned int Xend, unsigned int Ystart, unsigned int Yend);
 void LCD_Fill_Pic(uint16_t x, uint16_t y, uint16_t pic_H, uint16_t pic_V, const unsigned char *pic);
 uint16_t LCD_DecToRGB(uint8_t R, uint8_t G, uint8_t B);
+
 #endif
